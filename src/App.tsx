@@ -1,19 +1,22 @@
 import Home from './pages'
-import { BubbleSort } from './pages/BubbleSort'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { SelectionSort } from './pages/SelectionSort'
-import { QuickSort } from './pages/QuickSort'
-import { MergeSort } from './pages/MergeSortGraph'
+import { BubbleSort } from './pages/sort/BubbleSort'
+import { SelectionSort } from './pages/sort/SelectionSort'
+import { QuickSort } from './pages/sort/QuickSort'
+import { MergeSort } from './pages/sort/MergeSortGraph'
+import { BrowserRouter, Route, Routes } from 'react-router'
+import Layout from './components/Layout'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/bubble-sort'  element={<BubbleSort />} />
-        <Route path='/selection-sort' element={<SelectionSort />} />
-        <Route path='/quick-sort' element={<QuickSort />} />
-        <Route path='/merge-sort' element={<MergeSort />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/sort/bubble-sort" element={<BubbleSort />} />
+          <Route path="/sort/selection-sort" element={<SelectionSort />} />
+          <Route path="/sort/quick-sort" element={<QuickSort />} />
+          <Route path="/sort/merge-sort" element={<MergeSort />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )

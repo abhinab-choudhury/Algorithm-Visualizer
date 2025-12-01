@@ -1,7 +1,9 @@
 const Footer = () => {
   return (
-    <div className="h-fit border py-2 mt-20">
-      <p className="mx-10 text-sm">&copy; 2024</p>
+    <div className="mt-20 h-fit border py-2">
+      <p className="mx-10 text-sm">
+        Algo Visualizer - &copy; {new Date().getFullYear()}
+      </p>
     </div>
   )
 }

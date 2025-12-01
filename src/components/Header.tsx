@@ -1,98 +1,54 @@
-import * as React from 'react'
-import { cn } from '../lib/utils'
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from './ui/navigation-menu'
-import { Link } from 'react-router-dom'
+import { SortAsc } from 'lucide-react'
+import React from 'react'
+import { Link, useNavigate } from 'react-router'
 
-export default function Tabnavbar() {
+export default function Header() {
+  const navigate = useNavigate()
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    if (e.target.value) {
+      navigate(e.target.value)
+    }
+  }
+
   return (
-    <nav className="border-b">
-      <div className="container mx-auto flex items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-        <div className="flex items-center space-x-4">
-          <a href="#" className="text-2xl font-bold">
-            Sorting Visualizer
-          </a>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Algorithms</NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white">
-                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                    <li className="row-span-3">
-                      <NavigationMenuLink asChild>
-                        <Link
-                          className="hover:bg-gray-100 rounded-2xl bg-gray-50 from-muted/50 to-muted flex h-full w-full select-none flex-col justify-end bg-gradient-to-b p-6 no-underline outline-none focus:shadow-md"
-                          to="/quick-sort"
-                        >
-                          <div className="mb-2 mt-4 text-lg font-medium">
-                            Quick Sort
-                          </div>
-                          <p className="text-muted-foreground text-sm leading-tight">
-                            Time Complexity <strong>O(n.log(n))</strong>
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <ListItem to="/merge-sort" title="Merge Sort">
-                      <p className="text-muted-foreground text-sm leading-tight">
-                        Time Complexity <strong>O(n.log(n))</strong>
-                      </p>
-                    </ListItem>
-                    <ListItem to="/bubble-sort" title="Bubble Sort">
-                      <p className="text-muted-foreground text-sm leading-tight">
-                        Time Complexity{' '}
-                        <strong>
-                          O(n<sup>2</sup>)
-                        </strong>
-                      </p>
-                    </ListItem>
-                    <ListItem to="/selection-sort" title="Selection Sort">
-                      <p className="text-muted-foreground text-sm leading-tight">
-                        Time Complexity{' '}
-                        <strong>
-                          O(n<sup>2</sup>)
-                        </strong>
-                      </p>
-                    </ListItem>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
+    <nav className="border-b bg-white">
+      <div className="container mx-auto flex items-center gap-10 px-4 py-3">
+        <Link to="/" className="text-xl font-semibold">
+          Algorithm Visualizer
+        </Link>
+
+        <select
+          onChange={handleChange}
+          className="cursor-pointer rounded border-gray-300 bg-transparent py-1.5 pl-3 pr-8 text-sm"
+          defaultValue="Quick Sort"
+        >
+          <option
+            className="appearance-none border-none"
+            value="/sort/quick-sort"
+          >
+            Quick Sort
+          </option>
+          <option
+            className="appearance-none border-none"
+            value="/sort/merge-sort"
+          >
+            Merge Sort
+          </option>
+          <option
+            className="appearance-none border-none"
+            value="/sort/bubble-sort"
+          >
+            Bubble Sort
+          </option>
+          <option
+            className="appearance-none border-none"
+            value="/sort/selection-sort"
+          >
+            Selection Sort
+          </option>
+        </select>
       </div>
     </nav>
   )
 }
-
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<typeof Link>
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li className="rounded-lg">
-      <NavigationMenuLink asChild>
-        <Link
-          ref={ref}
-          className={cn(
-            'hover:bg-gray-100 bg-gray-50 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors',
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = 'ListItem'

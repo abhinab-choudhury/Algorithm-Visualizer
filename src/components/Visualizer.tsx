@@ -1,10 +1,10 @@
-import { Graph as BubbleSortGraph } from './BubbleSortGraph'
-import { Graph as QuickSortGraph } from './QuickSortGraph';
-import { Graph as MergeSortGraph } from './MergeSortGraph';
-import { Graph as SelectionSortGraph } from './SelectionSortGraph';
+import { Graph as BubbleSortGraph } from './sort/BubbleSortGraph'
+import { Graph as QuickSortGraph } from './sort/QuickSortGraph'
+import { Graph as MergeSortGraph } from './sort/MergeSortGraph'
+import { Graph as SelectionSortGraph } from './sort/SelectionSortGraph'
 
 interface VisualizerProps {
-  algorithm: "bubblesort" | "quicksort" | "mergesort" | "selectionsort"
+  algorithm: 'bubblesort' | 'quicksort' | 'mergesort' | 'selectionsort'
 }
 
 const algorithmComponents = {
@@ -12,14 +12,18 @@ const algorithmComponents = {
   quicksort: QuickSortGraph,
   mergesort: MergeSortGraph,
   selectionsort: SelectionSortGraph,
-};
+}
 
-const Visualizer = ({ algorithm }:VisualizerProps ) => {
-  const AlgorithmComponent = algorithmComponents[algorithm] || null;
+const Visualizer = ({ algorithm }: VisualizerProps) => {
+  const AlgorithmComponent = algorithmComponents[algorithm] || null
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center align-middle items-center gap-4 m-10">
-      {AlgorithmComponent ? <AlgorithmComponent /> : <p> Select an algorithm </p>}
+    <div className="m-20 mx-auto w-[90%]">
+      {AlgorithmComponent ? (
+        <AlgorithmComponent />
+      ) : (
+        <p> Select an algorithm </p>
+      )}
     </div>
   )
 }
