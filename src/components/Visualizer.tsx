@@ -16,7 +16,6 @@ const algorithmComponents = {
 
 const Visualizer = ({ algorithm }: VisualizerProps) => {
   const AlgorithmComponent = algorithmComponents[algorithm] || null
-
   return (
     <div className="m-20 mx-auto w-[90%]">
       {AlgorithmComponent ? (

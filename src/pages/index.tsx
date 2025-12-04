@@ -6,7 +6,7 @@ export default function Home() {
   const navigate = useNavigate()
 
   return (
-    <div className="min-h-screen">
+    <div>
       <section className="bg-conic-120 relative m-auto my-3 flex min-h-[80vh] max-w-7xl items-center overflow-hidden from-[#d6d6d648] to-[#7a7a7a6e]">
         <div className="absolute -z-10 h-full w-full">
           <div className="absolute right-20 top-20 h-64 w-64 rounded-full bg-[#5046e615] blur-3xl"></div>
@@ -44,6 +44,9 @@ export default function Home() {
 
               <Button
                 variant="outline"
+                onClick={() => {
+                  navigate('/pathfinding/a-star')
+                }}
                 className="border-2 border-[#101018] text-[#101018] hover:bg-[#10101811]"
               >
                 Explore Pathfinding

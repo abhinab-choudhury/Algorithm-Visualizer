@@ -1,50 +1,69 @@
-# React + TypeScript + Vite
+# Algorithm Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> ShadCN | React + Vite
 
-Currently, two official plugins are available:
+## **Contents**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Introduction](#introduction)
+- [Problem Statement](#problem-statement)
+- [Methodology](#methodology)
+  - [System Design](#system-design)
+  - [Algorithm Selection](#algorithm-selection)
+  - [Visualization Approach](#visualization-approach)
+  - [User Interaction Flow](#user-interaction-flow)
+- [Implementation](#implementation)
+  - [Project Structure](#project-structure)
+  - [Key Components](#key-components)
+  - [Sorting Algorithm Example](#sorting-algorithm-example)
+  - [Pathfinding Algorithm Example](#pathfinding-algorithm-example)
+- [Results & Interpretation](#results--interpretation)
+  - [Sorting Visual Output](#sorting-visual-output)
+  - [Pathfinding Visual Output](#pathfinding-visual-output)
+- [Conclusion](#conclusion)
+- [References](#references)
+- [Appendices](#appendices)
+  - [Source Code](#source-code)
+  - [Screenshots](#screenshots)
+  - [Wireframes](#wireframes)
+  - [Flowcharts](#flowcharts)
+  - [Time & Space Complexity](#time--space-complexity)
 
-## Expanding the ESLint configuration
+# Introduction
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Problem Statement
 
-- Configure the top-level `parserOptions` property like this:
+# methodology
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## System Design
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Algorithm Selection
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Visualization Approach
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## User Interaction Flow
+
+# Implementation
+
+## Project Structure
+
+## Key Components
+
+## Sorting Algorithm Example
+
+## Pathfinding Algorithm Example
+
+# Conclusion
+
+# References
+
+# Appendices
+
+## Source Code
+
+## Screenshots
+
+## Wireframes
+
+## Flowcharts
+
+## Time & Space Complexity

@@ -19,6 +19,7 @@ import {
 import { Button } from '../ui/button'
 import { CirclePause, RotateCcw } from 'lucide-react'
 import { Data, isAlreadySorted } from '../../lib/utils'
+import { SortingAlgoSelet } from '../SelectAlgo'
 
 export const description = 'An interactive bar chart'
 
@@ -103,76 +104,79 @@ export function Graph() {
   }
 
   return (
-    <Card className="m-2 mx-auto h-full w-full">
-      <CardHeader className="my-auto flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
-        <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
-          <CardTitle>Sorting Algorithm - Bubble Sort</CardTitle>
-          <CardDescription>
-            Visualizing array sorting with a bar chart.
-          </CardDescription>
-        </div>
-        <div className="flex">
-          <div className="data-[active=true]:bg-muted/50 relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l sm:border-l sm:border-t-0 sm:px-8 sm:py-6">
-            <div className="flex h-[36px] flex-row gap-1">
-              <Button
-                variant={'outline'}
-                onClick={TogglePlay}
-                className={`${!pausePlayBtnVisible ? 'hidden' : ''} w-full border-black p-2 text-black active:scale-95 active:transition-all`}
-              >
-                {play && <CirclePause />}
-              </Button>
-              <Button
-                variant={'outline'}
-                onClick={generateRandom}
-                disabled={pausePlayBtnVisible}
-                className="w-full border-black text-black active:scale-95 active:transition-all"
-              >
-                <RotateCcw />
-              </Button>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-muted-foreground text-xs">
-                Total Comparisons:{' '}
-                <span className="text-lg font-extrabold">{comparisons}</span>
-              </span>
-              <span className="text-muted-foreground text-xs">
-                Total Swaps:{' '}
-                <span className="text-lg font-extrabold">{swaps}</span>
-              </span>
-              <Button
-                disabled={play}
-                variant={'outline'}
-                onClick={() => {
-                  playRef.current = true
-                  setPlay(true)
-                  startBubbleSort()
-                }}
-              >
-                Start
-              </Button>
+    <>
+      <SortingAlgoSelet />
+      <Card className="m-2 mx-auto h-full w-full">
+        <CardHeader className="my-auto flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
+          <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
+            <CardTitle>Sorting Algorithm - Bubble Sort</CardTitle>
+            <CardDescription>
+              Visualizing array sorting with a bar chart.
+            </CardDescription>
+          </div>
+          <div className="flex">
+            <div className="data-[active=true]:bg-muted/50 relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l sm:border-l sm:border-t-0 sm:px-8 sm:py-6">
+              <div className="flex h-[36px] flex-row gap-1">
+                <Button
+                  variant={'outline'}
+                  onClick={TogglePlay}
+                  className={`${!pausePlayBtnVisible ? 'hidden' : ''} w-full border-black p-2 text-black active:scale-95 active:transition-all`}
+                >
+                  {play && <CirclePause />}
+                </Button>
+                <Button
+                  variant={'outline'}
+                  onClick={generateRandom}
+                  disabled={pausePlayBtnVisible}
+                  className="w-full border-black text-black active:scale-95 active:transition-all"
+                >
+                  <RotateCcw />
+                </Button>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-muted-foreground text-xs">
+                  Total Comparisons:{' '}
+                  <span className="text-lg font-extrabold">{comparisons}</span>
+                </span>
+                <span className="text-muted-foreground text-xs">
+                  Total Swaps:{' '}
+                  <span className="text-lg font-extrabold">{swaps}</span>
+                </span>
+                <Button
+                  disabled={play}
+                  variant={'outline'}
+                  onClick={() => {
+                    playRef.current = true
+                    setPlay(true)
+                    startBubbleSort()
+                  }}
+                >
+                  Start
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </CardHeader>
-      <CardContent className="px-2 sm:p-6">
-        <ChartContainer
-          config={chartConfig}
-          className="aspect-auto h-[350px] w-full"
-        >
-          <BarChart
-            accessibilityLayer
-            data={data}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
+        </CardHeader>
+        <CardContent className="px-2 sm:p-6">
+          <ChartContainer
+            config={chartConfig}
+            className="aspect-auto h-[350px] w-full"
           >
-            <CartesianGrid vertical={false} />
-            <ChartTooltip content={<ChartTooltipContent />} />
-            <Bar dataKey={activeChart} fill={`var(--color-${activeChart})`} />
-          </BarChart>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+            <BarChart
+              accessibilityLayer
+              data={data}
+              margin={{
+                left: 12,
+                right: 12,
+              }}
+            >
+              <CartesianGrid vertical={false} />
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <Bar dataKey={activeChart} fill={`var(--color-${activeChart})`} />
+            </BarChart>
+          </ChartContainer>
+        </CardContent>
+      </Card>
+    </>
   )
 }
