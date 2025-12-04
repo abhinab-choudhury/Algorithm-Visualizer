@@ -70,7 +70,7 @@ export function Graph() {
     high: number
   ): Promise<number> => {
     const randomIndex = low + Math.floor(Math.random() * (high - low + 1))
-      ;[arr[randomIndex], arr[high]] = [arr[high], arr[randomIndex]]
+    ;[arr[randomIndex], arr[high]] = [arr[high], arr[randomIndex]]
     const pivot = arr[high].height
     let i = low - 1
 
@@ -80,7 +80,7 @@ export function Graph() {
       setComparisons((prev) => prev + 1)
       if (arr[j].height < pivot) {
         i++
-          ;[arr[i], arr[j]] = [arr[j], arr[i]]
+        ;[arr[i], arr[j]] = [arr[j], arr[i]]
         setSwaps((prev) => prev + 1)
         setData([...arr])
         await new Promise((resolve) => setTimeout(resolve, 20))

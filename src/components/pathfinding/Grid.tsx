@@ -1,6 +1,11 @@
 import { useState } from 'react'
 
-export default function Grid50x50({ rows = 50, cols = 50, cellSize = 20, gap = 2 }) {
+export default function Grid50x50({
+  rows = 50,
+  cols = 50,
+  cellSize = 20,
+  gap = 2,
+}) {
   const total = rows * cols
   const [activeSet, setActiveSet] = useState(new Set())
 

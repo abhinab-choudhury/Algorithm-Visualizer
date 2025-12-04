@@ -1,14 +1,14 @@
-import Grid50x50 from "../../components/pathfinding/Grid";
-import { PathfindingAlgoSelect } from "../../components/SelectAlgo";
+import Grid50x50 from '../../components/pathfinding/Grid'
+import { PathfindingAlgoSelect } from '../../components/SelectAlgo'
 
 export default function Dijkstra() {
   return (
-    <div className="p-4 md:p-6 my-auto">
+    <div className="my-auto p-4 md:p-6">
       <h1 className="mb-4 text-center text-xl font-extrabold md:text-2xl">
         Dijkstra Algorithm
       </h1>
 
-      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center md:flex-row md:items-start">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-center md:flex-row md:items-start">
         <Grid50x50 rows={40} cols={65} cellSize={13} gap={1} />
         <div className="flex flex-col gap-2">
           <PathfindingAlgoSelect />
