@@ -9,6 +9,10 @@ import {
   TILE_STYLE,
   SPEEDS,
   WALL_TILE_STYLE,
+  SLEEP_TIME,
+  TRAVERSED_TILE_STYLE,
+  PATH_TILE_STYLE,
+  EXTENDED_SLEEP_TIME,
 } from './constants'
 
 export interface Data {
@@ -174,4 +178,34 @@ export const destroyWall = async (
     document.getElementById(`tile-${row + 1}-${col}`)!.className = TILE_STYLE
     await sleep(delay)
   }
+}
+
+export const animatePath = (
+  traversedTiles: TileType[],
+  path: TileType[],
+  startTile: TileType,
+  endTile: TileType,
+  speed: PathFindingSpeedType
+) => {
+  for(let i = 0;i < traversedTiles.length;i++) {
+    setTimeout(() => {
+      const tile = traversedTiles[i];
+      if(!isEqual(tile, startTile) && !isEqual(tile, endTile)) {
+        document.getElementById(`tile-${tile.row}-${tile.col}`)!.className = `${TRAVERSED_TILE_STYLE} animate-traversed`
+      }
+    }, SLEEP_TIME * i * SPEEDS.find((s) => s.value === speed)!.value)
+  }
+
+  setTimeout(() => {
+    for (let i = 0; i < path.length; i++) {
+      setTimeout(() => {
+        const tile = path[i];
+        if (!isEqual(tile, startTile) && !isEqual(tile, endTile)) {
+          document.getElementById(
+            `tile-${tile.row}-${tile.col}`
+          )!.className = `${PATH_TILE_STYLE} animate-path`;
+        }
+      }, EXTENDED_SLEEP_TIME * i * SPEEDS.find((s) => s.value === speed)!.value);
+    }
+  }, SLEEP_TIME * traversedTiles.length * SPEEDS.find((s) => s.value === speed)!.value);
 }

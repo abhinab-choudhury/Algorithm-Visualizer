@@ -45,7 +45,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 onClick={() => {
-                  navigate('/pathfinding/a-star')
+                  navigate('/pathfinding/bfs')
                 }}
                 className="border-2 border-[#101018] text-[#101018] hover:bg-[#10101811]"
               >

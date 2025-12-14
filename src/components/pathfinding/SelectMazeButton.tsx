@@ -44,17 +44,27 @@ export default function SelectMazeButton() {
     setIsGraphVisualized(false)
   }
   return (
-    <select
-      value={maze}
-      onChange={(e) => {
-        handleMazeGenerate(e.target.value as MazeType)
-      }}
-    >
-      {MAZE.map((mazeOption) => (
-        <option key={mazeOption.value} value={mazeOption.value}>
-          {mazeOption.label}
-        </option>
-      ))}
-    </select>
+    <div className="flex flex-col">
+      <label
+        htmlFor="maze-select"
+        className="mb-1 text-xs font-medium text-gray-500"
+      >
+        Maze Selection
+      </label>
+      <select
+        id="maze-select"
+        value={maze}
+        onChange={(e) => {
+          handleMazeGenerate(e.target.value as MazeType)
+        }}
+        className="cursor-pointer rounded border border-gray-300 bg-white py-1.5 pl-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+      >
+        {MAZE.map((mazeOption) => (
+          <option key={mazeOption.value} value={mazeOption.value}>
+            {mazeOption.label}
+          </option>
+        ))}
+      </select>
+    </div>
   )
 }

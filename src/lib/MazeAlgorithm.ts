@@ -5,6 +5,7 @@ import type {
   PathFindingSpeedType,
   TileType,
 } from './types'
+import { resetGrid } from './utils'
 
 export const GenerateMazeAlgorithms = async ({
   maze,
@@ -22,6 +23,7 @@ export const GenerateMazeAlgorithms = async ({
   speed: PathFindingSpeedType
 }) => {
   if (maze === 'BINARY_TREE') {
+    resetGrid({ grid, startTile, endTile })
     await binaryTree(grid, startTile, endTile, setIsDisabled, speed)
   }
 }

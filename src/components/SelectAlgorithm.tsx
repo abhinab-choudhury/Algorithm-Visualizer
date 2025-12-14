@@ -9,8 +9,14 @@ export function SortingAlgoSelet() {
 
   return (
     <div className="flex flex-col">
-      <label className="mb-1 text-xs font-medium text-gray-500">Sorting</label>
+      <label
+        htmlFor="sorting-algo-select"
+        className="mb-1 text-xs font-medium text-gray-500"
+      >
+        Sorting
+      </label>
       <select
+        id="sorting-algo-select"
         onChange={handleChange}
         className="cursor-pointer rounded border border-gray-300 bg-white py-1.5 pl-3 pr-8 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
         defaultValue=""
@@ -36,21 +42,22 @@ export function PathfindingAlgoSelect() {
   }
   return (
     <div className="flex flex-col">
-      <label className="mb-1 text-xs font-medium text-gray-500">
+      <label
+        htmlFor="pathfinding-select"
+        className="mb-1 text-xs font-medium text-gray-500"
+      >
         Pathfinding
       </label>
       <select
+        id="pathfinding-select"
         onChange={handleChange}
         className="cursor-pointer rounded border border-gray-300 bg-white py-1.5 pl-3 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
-        defaultValue=""
+        defaultValue="/pathfinding/bfs"
       >
         <option value="" disabled>
           Select a Sorting Algorithm
         </option>
-        <option value="/pathfinding/a-star">A* Search</option>
-        <option value="/pathfinding/dijkstra">Dijkstra</option>
         <option value="/pathfinding/bfs">Breadth First Search</option>
-        <option value="/pathfinding/dfs">Depth First Search</option>
       </select>
     </div>
   )

@@ -40,7 +40,6 @@ export const PATH_TILE_STYLE = 'border w-[12px] h-[12px] bg-green-500'
 export const MAZE: MazeSelectType[] = [
   { label: 'None', value: 'NONE' },
   { label: 'Binary Tree', value: 'BINARY_TREE' },
-  { label: 'Recursive Division', value: 'RECURSIVE_DIVISION' },
 ]
 
 export const PATHFINDING_ALGORITHMS: PathFindingAlgorithmSelectType[] = [
@@ -55,3 +54,6 @@ export const SPEEDS: PathFindingSpeedSelectType[] = [
   { label: 'Medium', value: 1 },
   { label: 'Fast', value: 2 },
 ]
+
+export const SLEEP_TIME = 8
+export const EXTENDED_SLEEP_TIME = 30;

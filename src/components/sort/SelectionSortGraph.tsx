@@ -1,5 +1,3 @@
-'use client'
-
 import * as React from 'react'
 import { Bar, BarChart, CartesianGrid } from 'recharts'
 
@@ -11,14 +9,14 @@ import {
   CardTitle,
 } from '../ui/card'
 import {
-  ChartConfig,
+  type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from '../ui/chart'
 import { Button } from '../ui/button'
 import { CirclePause, RotateCcw } from 'lucide-react'
-import { Data, isAlreadySorted } from '../../lib/utils'
+import { type Data, isAlreadySorted } from '../../lib/utils'
 import { SortingAlgoSelet } from '../SelectAlgorithm'
 
 export const description = 'An interactive bar chart'

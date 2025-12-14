@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { MAX_COLS, MAX_ROWS } from '../../lib/constants'
 import { Tile } from './Tile'
-import { TileType } from '../../lib/types'
+import type { TileType } from '../../lib/types'
 import { usePathfinding } from '../../hook/usePathfunding'
 import { checkIsStartOrEnd, createNewGrid } from '../../lib/utils'
 
