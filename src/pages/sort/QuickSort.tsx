@@ -1,5 +1,5 @@
-import Visualizer from '../../components/Visualizer'
+import SortingVisualizer from '../../components/SortingVisualizer'
 
 export const QuickSort = () => {
-  return <Visualizer algorithm="quicksort" />
+  return <SortingVisualizer algorithm="quicksort" />
 }

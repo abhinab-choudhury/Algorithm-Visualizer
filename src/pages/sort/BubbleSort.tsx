@@ -1,5 +1,5 @@
-import Visualizer from '../../components/Visualizer'
+import SortingVisualizer from '../../components/SortingVisualizer'
 
 export const BubbleSort = () => {
-  return <Visualizer algorithm="bubblesort" />
+  return <SortingVisualizer algorithm="bubblesort" />
 }

@@ -19,7 +19,7 @@ import {
 import { Button } from '../ui/button'
 import { CirclePause, RotateCcw } from 'lucide-react'
 import { Data, isAlreadySorted } from '../../lib/utils'
-import { SortingAlgoSelet } from '../SelectAlgo'
+import { SortingAlgoSelet } from '../SelectAlgorithm'
 
 export const description = 'An interactive bar chart'
 

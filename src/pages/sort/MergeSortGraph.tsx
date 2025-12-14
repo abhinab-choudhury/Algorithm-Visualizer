@@ -1,5 +1,5 @@
-import Visualizer from '../../components/Visualizer'
+import SortingVisualizer from '../../components/SortingVisualizer'
 
 export const MergeSort = () => {
-  return <Visualizer algorithm="mergesort" />
+  return <SortingVisualizer algorithm="mergesort" />
 }

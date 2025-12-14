@@ -14,7 +14,7 @@ const algorithmComponents = {
   selectionsort: SelectionSortGraph,
 }
 
-const Visualizer = ({ algorithm }: VisualizerProps) => {
+const SortingVisualizer = ({ algorithm }: VisualizerProps) => {
   const AlgorithmComponent = algorithmComponents[algorithm] || null
   return (
     <div className="m-20 mx-auto w-[90%]">
@@ -27,4 +27,4 @@ const Visualizer = ({ algorithm }: VisualizerProps) => {
   )
 }
 
-export default Visualizer
+export default SortingVisualizer
