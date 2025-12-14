@@ -187,25 +187,37 @@ export const animatePath = (
   endTile: TileType,
   speed: PathFindingSpeedType
 ) => {
-  for(let i = 0;i < traversedTiles.length;i++) {
-    setTimeout(() => {
-      const tile = traversedTiles[i];
-      if(!isEqual(tile, startTile) && !isEqual(tile, endTile)) {
-        document.getElementById(`tile-${tile.row}-${tile.col}`)!.className = `${TRAVERSED_TILE_STYLE} animate-traversed`
-      }
-    }, SLEEP_TIME * i * SPEEDS.find((s) => s.value === speed)!.value)
+  for (let i = 0; i < traversedTiles.length; i++) {
+    setTimeout(
+      () => {
+        const tile = traversedTiles[i]
+        if (!isEqual(tile, startTile) && !isEqual(tile, endTile)) {
+          document.getElementById(`tile-${tile.row}-${tile.col}`)!.className =
+            `${TRAVERSED_TILE_STYLE} animate-traversed`
+        }
+      },
+      SLEEP_TIME * i * SPEEDS.find((s) => s.value === speed)!.value
+    )
   }
 
-  setTimeout(() => {
-    for (let i = 0; i < path.length; i++) {
-      setTimeout(() => {
-        const tile = path[i];
-        if (!isEqual(tile, startTile) && !isEqual(tile, endTile)) {
-          document.getElementById(
-            `tile-${tile.row}-${tile.col}`
-          )!.className = `${PATH_TILE_STYLE} animate-path`;
-        }
-      }, EXTENDED_SLEEP_TIME * i * SPEEDS.find((s) => s.value === speed)!.value);
-    }
-  }, SLEEP_TIME * traversedTiles.length * SPEEDS.find((s) => s.value === speed)!.value);
+  setTimeout(
+    () => {
+      for (let i = 0; i < path.length; i++) {
+        setTimeout(
+          () => {
+            const tile = path[i]
+            if (!isEqual(tile, startTile) && !isEqual(tile, endTile)) {
+              document.getElementById(
+                `tile-${tile.row}-${tile.col}`
+              )!.className = `${PATH_TILE_STYLE} animate-path`
+            }
+          },
+          EXTENDED_SLEEP_TIME * i * SPEEDS.find((s) => s.value === speed)!.value
+        )
+      }
+    },
+    SLEEP_TIME *
+      traversedTiles.length *
+      SPEEDS.find((s) => s.value === speed)!.value
+  )
 }

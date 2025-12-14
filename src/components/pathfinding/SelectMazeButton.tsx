@@ -9,20 +9,13 @@ import { GenerateMazeAlgorithms } from '../../lib/MazeAlgorithm'
 import PlayBFSBtn from './PlayBFSBtn'
 
 type Props = {
-  isVisualizationRunningRef: React.MutableRefObject<boolean>;
-};
+  isVisualizationRunningRef: React.MutableRefObject<boolean>
+}
 
-export default function SelectMazeButton({
-  isVisualizationRunningRef,
-}: Props) {
+export default function SelectMazeButton({ isVisualizationRunningRef }: Props) {
   const [isDisabled, setIsDisabled] = useState<boolean>(false)
-  const {
-    maze,
-    setMaze,
-    grid,
-    setGrid,
-    setIsGraphVisualized,
-  } = usePathfinding()
+  const { maze, setMaze, grid, setGrid, setIsGraphVisualized } =
+    usePathfinding()
   const { startTile, endTile } = useTile()
   const { speed } = useSpeed()
 
@@ -71,7 +64,11 @@ export default function SelectMazeButton({
           ))}
         </select>
       </div>
-      <PlayBFSBtn isDisabled={isDisabled} setIsDisabled={setIsDisabled} isVisualizationRunningRef={isVisualizationRunningRef} />
+      <PlayBFSBtn
+        isDisabled={isDisabled}
+        setIsDisabled={setIsDisabled}
+        isVisualizationRunningRef={isVisualizationRunningRef}
+      />
     </>
   )
 }

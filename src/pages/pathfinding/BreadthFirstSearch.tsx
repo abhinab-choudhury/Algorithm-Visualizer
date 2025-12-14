@@ -21,7 +21,9 @@ export default function BFS() {
 
           <div className="flex w-full flex-col gap-4 px-2 md:w-auto">
             <PathfindingAlgoSelect />
-            <SelectMazeButton isVisualizationRunningRef={isVisualizationRunningRef} />
+            <SelectMazeButton
+              isVisualizationRunningRef={isVisualizationRunningRef}
+            />
           </div>
         </div>
       </div>
