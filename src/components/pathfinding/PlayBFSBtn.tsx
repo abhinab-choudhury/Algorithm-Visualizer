@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { bfs } from "../../algorithms/bfs";
 import { useTile } from "../../hook/useTile";
 import { animatePath } from "../../lib/utils";
@@ -12,14 +11,16 @@ import {
 } from "../../lib/constants";
 
 type Props = {
+  isDisabled: boolean,
+  setIsDisabled: React.Dispatch<React.SetStateAction<boolean>>,
   isVisualizationRunningRef: React.MutableRefObject<boolean>;
 };
 
 export default function PlayBFSBtn({
+  isDisabled,
+  setIsDisabled,
   isVisualizationRunningRef,
 }: Props) {
-  const [isDisabled, setIsDisabled] = useState(false);
-
   const { startTile, endTile } = useTile();
   const { speed } = useSpeed();
   const {

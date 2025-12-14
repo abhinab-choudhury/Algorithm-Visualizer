@@ -3,7 +3,6 @@ import Grid from '../../components/pathfinding/Grid'
 import PathFindingVisualizer from '../../components/PathfindingVisualizer'
 import { PathfindingAlgoSelect } from '../../components/SelectAlgorithm'
 import SelectMazeButton from '../../components/pathfinding/SelectMazeButton'
-import PlayBFSBtn from '../../components/pathfinding/PlayBFSBtn'
 
 export default function BFS() {
   const isVisualizationRunningRef = useRef(false)
@@ -22,8 +21,7 @@ export default function BFS() {
 
           <div className="flex w-full flex-col gap-4 px-2 md:w-auto">
             <PathfindingAlgoSelect />
-            <SelectMazeButton />
-            <PlayBFSBtn isVisualizationRunningRef={isVisualizationRunningRef} />
+            <SelectMazeButton isVisualizationRunningRef={isVisualizationRunningRef} />
           </div>
         </div>
       </div>

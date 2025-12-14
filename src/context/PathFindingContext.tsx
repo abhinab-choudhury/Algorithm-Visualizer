@@ -1,5 +1,5 @@
 import { createContext, useState, type ReactNode } from 'react'
-import type { GridType, MazeType, PathFindingAlgorithm } from '../lib/types'
+import type { GridType, MazeType, PathFindingAlgorithmType } from '../lib/types'
 import { CreateGrid } from '../lib/utils'
 import {
   END_TILE_CONFIGURATION,
@@ -7,8 +7,8 @@ import {
 } from '../lib/constants'
 
 interface PathFundingContextInteface {
-  algorithm: PathFindingAlgorithm
-  setAlgorithm: (algorithm: PathFindingAlgorithm) => void
+  algorithm: PathFindingAlgorithmType
+  setAlgorithm: (algorithm: PathFindingAlgorithmType) => void
   maze: MazeType
   setMaze: (maze: MazeType) => void
   grid: GridType
@@ -22,7 +22,7 @@ export const PathFindingContext = createContext<
 >(undefined)
 
 export const PathFindingProvider = ({ children }: { children: ReactNode }) => {
-  const [algorithm, setAlgorithm] = useState<PathFindingAlgorithm>('A_STAR')
+  const [algorithm, setAlgorithm] = useState<PathFindingAlgorithmType>('A_STAR')
   const [maze, setMaze] = useState<MazeType>('NONE')
   const [grid, setGrid] = useState<GridType>(
     CreateGrid(START_TILE_CONFIGURATION, END_TILE_CONFIGURATION)
